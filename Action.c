@@ -281,6 +281,7 @@ Action()
 		"Snapshot=t59.inf",
 		"Mode=HTML",
 		LAST);
+lr_start_transaction("UC_check_emails");
 
 	web_submit_data("move",
 		"Action={Action}/api/v1/threads/move",
@@ -300,6 +301,7 @@ Action()
 		"Name=htmlencoded", "Value=false", ENDITEM,
 		"Name=token", "Value={token}", ENDITEM,
 		LAST);
+lr_end_transaction("UC_check_emails", LR_AUTO);
 	
 	web_url("smart_7",
 		"URL={Action}/api/v1/messages/replies/smart?id=16219534431185229338&email={LOGIN}%40{emailhost}&htmlencoded=false&token={token}&_=1622200966325",
